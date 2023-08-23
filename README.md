@@ -28,7 +28,7 @@ SELECT * FROM tik LIMIT 5;
 There were a few columns with incorrect data types. I decided to convert them using two approaches. The first method is suitable for converting a single column, while the second one can be applied to convert several columns:
 ```SQL
 ALTER TABLE tik 
-add column timest DATE;
+ADD column timest DATE;
 
 UPDATE tik 
 SET timest = DATE(timestamp);
@@ -52,7 +52,7 @@ CREATE TABLE new_tik (
   following INT,
   likes INT,
   videos_count INT,
-  CREATE_time TEXT,
+  create_time TEXT,
   id INT,
   top_videos TEXT,
   url TEXT,
@@ -63,7 +63,7 @@ CREATE TABLE new_tik (
 INSERT INTO new_tik
 SELECT account_id, nickname, biography, awg_engagement_rate, comment_engagement_rate,
 like_engagement_rate, bio_link, is_verified, followers, following, likes, videos_count,
-CREATE_time, id, top_videos, url, profile_pic_url, timest
+create_time, id, top_videos, url, profile_pic_url, timest
 FROM tik;
 
 SELECT * FROM new_tik LIMIT 5;
