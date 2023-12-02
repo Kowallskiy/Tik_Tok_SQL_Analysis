@@ -19,7 +19,7 @@ WHERE TABLE_NAME = @TableName;
 
 EXEC sp_executesql @DynamicSQL;
 
---another way to count the number of missing values-- 
+--count the number of missing values-- 
 SELECT COUNT(*) as MissingValues
 from tik
 where timestamp is null or account_id is null or nickname is null or biography is null 
@@ -41,7 +41,7 @@ set timest = DATE(timestamp);
 alter table tik 
 drop column timestamp;
 
-alter table tik rename column timest to timestamp;
+ALTER table tik RENAME column timest to timestamp;
 
 --another way to change dtype of a column-- 
 create table new_tik (
